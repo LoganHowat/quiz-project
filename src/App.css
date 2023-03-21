@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'GT Walsheim Pro';
+    src: url('Fonts/GTWalsheimPro-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Italic Header';
+    src: url('Fonts/GTWalsheimPro-BlackOblique.woff2');
+}
+
+.title {
+    font-family: 'GT Walsheim Pro';
+    color: white;
+    font-size: calc(4vw + 4vh + 2vmin);
+    text-align: center;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.title:hover {
+    cursor: pointer;
+}
