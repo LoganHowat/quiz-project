@@ -3,7 +3,7 @@ import { Home } from "./pages"
 const App = (): JSX.Element => {
   return (
     <div>
-      <h1>Hello There</h1>
+      <h1>I am in the App.tsx</h1>
       <Home />
     </div>
   )
