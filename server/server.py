@@ -1,7 +1,9 @@
 from database import db, app
 from routes.user_routes import user_bp
+from routes.quiz_routes import quiz_bp
 
 app.register_blueprint(user_bp)
+app.register_blueprint(quiz_bp)
 
 
 if __name__ == "__main__":

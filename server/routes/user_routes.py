@@ -53,8 +53,6 @@ def login_user():
         return {"Message":"Please enter all valid fields"},404
     else:
         user = User.query.filter_by(email=json_data["email"]).first()
-        print(user.password)
-        print(json_data["password"])
         if not user:
             return {"Message":"No user found"},404
         if bcrypt.checkpw(json_data["password"].encode('utf-8'), user.password):
