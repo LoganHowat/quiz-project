@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const SignupModal = () => {
+
+  const navigate = useNavigate()
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [LoggedIn, setLoggedIn] = useState(false)
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
@@ -14,17 +18,38 @@ const SignupModal = () => {
       password: password
   }
 
-  const response = await fetch(`/register`, {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(
-       dataToSend
-    )
-  });
-  const data = await response.json()
-  console.log(data)
+  try {
+    // Posting user credentials into database
+    const response = await fetch(`/register`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(
+         dataToSend
+      )
+    });
+    const data = await response.json()
+    console.log(data)
+    sessionStorage.setItem("user_id", data.id)
+
+    // If credentials are successfully stored in database, login user.
+    if (data) {
+      setLoggedIn(true)
+      setTimeout(() => {
+        setLoggedIn(false)
+      }, 3000)
+    }
+
+
+
+
+
+
+    
+  } catch (error) {
+    console.error(error)
+  }
   }
 
   return (
@@ -57,6 +82,7 @@ const SignupModal = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary" onClick={handleSubmit}>Signup</button>
         </div>
+        {LoggedIn && <p className="form-control mt-6 text-emerald-500">Signup Successful!</p>}
         </form>
       </div>
       </div>
