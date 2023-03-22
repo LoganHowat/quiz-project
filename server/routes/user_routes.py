@@ -42,7 +42,7 @@ def register_user():
         user = User(name=json_data["name"], email=json_data["email"], password=hashed)
         db.session.add(user)
         db.session.commit()
-        return json_data
+        return user.serialized()
     
     
 @user_bp.post("/login")
