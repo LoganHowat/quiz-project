@@ -9,6 +9,8 @@ const SignupModal = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [LoggedIn, setLoggedIn] = useState(false)
+  const [userError, setUserError] = useState(false)
+  const [serverError, setServerError] = useState(false)
 
   const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault()
@@ -34,22 +36,27 @@ const SignupModal = () => {
     sessionStorage.setItem("user_id", data.id)
 
     // If credentials are successfully stored in database, login user.
-    if (data) {
+    const gotten = sessionStorage.getItem("user_id")
+    if (gotten === "undefined") {
+      console.error("Database/SessionStorage Error: Cannot Store New User")
+      setServerError(true)
+      setTimeout(() => {
+        setServerError(false)
+      }, 10000)
+    } else {
       setLoggedIn(true)
       setTimeout(() => {
         setLoggedIn(false)
       }, 3000)
     }
-
-
-
-
-
-
     
-  } catch (error) {
-    console.error(error)
-  }
+    } catch (error) {
+      console.error("Email already in use")
+      setUserError(true)
+      setTimeout(() => {
+        setUserError(false)
+      }, 10000)
+    }
   }
 
   return (
@@ -84,6 +91,8 @@ const SignupModal = () => {
         </div>
         {LoggedIn && <p className="form-control mt-6 text-emerald-500">Signup Successful!</p>}
         </form>
+        {userError && <p className="form-control mt-6 text-red-500">Email already signed up</p>}
+        {serverError && <p className="form-control mt-6 text-red-500">Database Error: Cannot Get User</p>}
       </div>
       </div>
     </div>
