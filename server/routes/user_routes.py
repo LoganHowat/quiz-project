@@ -56,4 +56,7 @@ def login_user():
         if not user:
             return {"Message":"No user found"},404
         if bcrypt.checkpw(json_data["password"].encode('utf-8'), user.password):
-            return {"Message":"Login was successful"},200
+            return {
+                "Message":"Login was successful",
+                "user":user.serialized()
+            },200

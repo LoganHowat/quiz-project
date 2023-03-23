@@ -10,6 +10,9 @@ quiz_bp= Blueprint('quiz_bp', __name__)
 def convertJson(quiz):
     return quiz.serialized()
 
+def listCategories(category):
+    print()
+
 @quiz_bp.route("/quizzes")
 def get_quizzes():
     quizzes = Quiz.query.all()
@@ -34,6 +37,16 @@ def make_quiz():
             return{
                 "Message":"Please enter all fields"
             }, 404
+    except Exception as e:
+        return{
+            "Message":str(e)
+        },500
+        
+@quiz_bp.route("/categories")
+def get_categories():
+    try:
+        res = requests.get('https://the-trivia-api.com/api/categories')
+        return json.loads(res.text)
     except Exception as e:
         return{
             "Message":str(e)
