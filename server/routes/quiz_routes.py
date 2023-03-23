@@ -46,7 +46,11 @@ def make_quiz():
 def get_categories():
     try:
         res = requests.get('https://the-trivia-api.com/api/categories')
-        return json.loads(res.text)
+        json_response = json.loads(res.text)
+        array = []
+        for category in json_response:
+            array.append(category)
+        return array
     except Exception as e:
         return{
             "Message":str(e)
