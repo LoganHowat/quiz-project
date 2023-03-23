@@ -23,6 +23,7 @@ def validateNewUser(user):
             "Message":"Something went wrong"
         },500
 
+#Gets the users
 @user_bp.route("/users")
 def users():
     users = User.query.all()
@@ -30,6 +31,7 @@ def users():
     return_value = (list(users_data))
     return return_value
 
+#Registers a new user
 @user_bp.post("/register")
 def register_user():
     data = request.data #This returns the request body data to the method
@@ -44,7 +46,7 @@ def register_user():
         db.session.commit()
         return user.serialized()
     
-    
+#logs in a user
 @user_bp.post("/login")
 def login_user():
     data = request.data

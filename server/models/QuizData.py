@@ -11,5 +11,7 @@ class QuizData(db.Model):
     def serialized(self):
         return {
             "id": self.id,
-            "score":self.score
+            "score":self.score,
+            "user_id":self.user_id,
+            "quiz_id":self.quiz_id
         }
