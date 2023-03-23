@@ -5,7 +5,7 @@ const PrivateRoute = () => {
 
   let user = sessionStorage.getItem("user_id")
   let allow;
-  if (user == "undefined") {
+  if (user == "undefined" || user == null) {
     allow = false
   } else {
     allow = true
