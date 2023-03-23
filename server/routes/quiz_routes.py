@@ -13,6 +13,7 @@ def convertJson(quiz):
 def listCategories(category):
     print()
 
+#Gets all the quizzes that have been made
 @quiz_bp.route("/quizzes")
 def get_quizzes():
     quizzes = Quiz.query.all()
@@ -20,7 +21,7 @@ def get_quizzes():
     return_value = (list(quizzes_data))
     return return_value
 
-
+#Creates a quiz using certain params for the quiz e.g difficulty
 @quiz_bp.post("/questions")
 def make_quiz():
     try:
@@ -44,7 +45,8 @@ def make_quiz():
         return{
             "Message":str(e)
         },500
-        
+    
+#Returns the categories that can be chosen
 @quiz_bp.route("/categories")
 def get_categories():
     try:
@@ -52,7 +54,6 @@ def get_categories():
         json_response = json.loads(res.text)
         array = []
         for category in json_response:
-            print(json_response[category][0])
             array.append(category)
         return array
     except Exception as e:
