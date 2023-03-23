@@ -26,8 +26,11 @@ def make_quiz():
     try:
         data = request.data
         json_data = json.loads(data)
-        if json_data["categories"] and json_data["difficulty"] and json_data["limit"]: 
-            res = requests.get(f'https://the-trivia-api.com/api/questions?categories={json_data["categories"]}&difficulty={json_data["difficulty"]}&limit={json_data["limit"]}')
+        if json_data["categories"] and json_data["difficulty"] and json_data["limit"]:
+            categories_response = requests.get('https://the-trivia-api.com/api/categories')
+            json_categories_response = json.loads(categories_response.text)
+            category_url = json_categories_response[json_data["categories"]][0]
+            res = requests.get(f'https://the-trivia-api.com/api/questions?categories={category_url}&difficulty={json_data["difficulty"]}&limit={json_data["limit"]}')
             questions = str(json.loads(res.text))
             quiz = Quiz(categories=json_data["categories"], difficulty=json_data["difficulty"], limit=json_data["limit"], questions=questions)
             db.session.add(quiz)
@@ -49,6 +52,7 @@ def get_categories():
         json_response = json.loads(res.text)
         array = []
         for category in json_response:
+            print(json_response[category][0])
             array.append(category)
         return array
     except Exception as e:
