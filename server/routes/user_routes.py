@@ -44,6 +44,7 @@ def register_user():
         db.session.commit()
         return user.serialized()
     
+    
 @user_bp.post("/login")
 def login_user():
     data = request.data
