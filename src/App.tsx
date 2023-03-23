@@ -1,5 +1,6 @@
-import { Home } from "./pages"
+import { Home, Dashboard } from "./pages"
 import { Routes, Route, useLocation } from 'react-router-dom'
+import PrivateRoute from "./utils/PrivateRoute"
 import { AnimatePresence } from "framer-motion"
 import SquaresBG from "react-animated-squares"
 import "./App.css"
@@ -14,6 +15,11 @@ const App = (): JSX.Element => {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
+
+          <Route element={<PrivateRoute />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+
         </Routes>
       </AnimatePresence>
 
