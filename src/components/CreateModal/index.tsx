@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import TopicDropdown from '../TopicDropdown'
 import QuestionDropdown from '../QuestionDropdown'
 import DifficultyDropdown from '../DifficultyDropdown'
 
 const CreateModal = () => {
+
+  const [topicSelect, setTopicSelect] = useState("Arts & Literature")
+  const [difficultySelect, setDifficultySelect] = useState("easy")
+  const [questionSelect, setQuestionSelect] = useState(1)
+  
+  console.log(topicSelect)
+  console.log(difficultySelect)
+  console.log(questionSelect)
+
   return (
     <>
     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -17,21 +26,21 @@ const CreateModal = () => {
         <div className="form-control">
           <label className="label">
             <span className="label-text">Topic:</span>
-            <TopicDropdown />
+            <TopicDropdown selected={topicSelect} setSelected={setTopicSelect} />
           </label>
         </div>
 
         <div className="form-control">
           <label className="label">
             <span className="label-text">Difficulty:</span>
-            <DifficultyDropdown />
+            <DifficultyDropdown selected={difficultySelect} setSelected={setDifficultySelect}/>
           </label>
         </div>
 
         <div className="form-control">
           <label className="label">
             <span className="label-text">Limit:</span>
-            <QuestionDropdown />
+            <QuestionDropdown selected={questionSelect} setSelected={setQuestionSelect}/>
           </label>
         </div>
 

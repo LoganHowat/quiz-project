@@ -1,21 +1,16 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
-const people = [
-  { name: 'Wade Cooper' },
-  { name: 'Arlene Mccoy' },
-  { name: 'Devon Webb' },
-  { name: 'Tom Cook' },
-  { name: 'Tanya Fox' },
-  { name: 'Hellen Schmidt' },
-]
+
+interface Props {
+  selected: string;
+  setSelected: Dispatch<SetStateAction<string>>
+}
 
 
-const TopicDropdown = () => {
+const TopicDropdown = ({selected, setSelected}: Props) => {
     const [categories, setCategories] = useState([])
-    const [selected, setSelected] = useState('Arts & Literature')
-    console.log(selected)
 
     useEffect(() => {
       const fetchCategories = async () => {

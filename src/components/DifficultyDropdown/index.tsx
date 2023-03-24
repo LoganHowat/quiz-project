@@ -1,11 +1,15 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, Dispatch, SetStateAction } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
 const difficulty = ["easy", "medium", "hard"]
 
-const DifficultyDropdown = () => {
-    const [selected, setSelected] = useState(difficulty[0])
+interface Props {
+  selected: string;
+  setSelected: Dispatch<SetStateAction<string>>
+}
+
+const DifficultyDropdown = ({selected, setSelected}: Props) => {
 
     return (
       <div className=" top-16 w-80 z-20">
