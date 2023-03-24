@@ -1,6 +1,6 @@
-import { Home, Dashboard } from "./pages"
+import { Home, Dashboard, Game } from "./pages"
 import { Routes, Route, useLocation } from 'react-router-dom'
-import PrivateRoute from "./utils/PrivateRoute"
+import PrivateDashboardRoute from "./utils/PrivateDashboardRoute"
 import { AnimatePresence } from "framer-motion"
 import SquaresBG from "react-animated-squares"
 import "./App.css"
@@ -16,9 +16,11 @@ const App = (): JSX.Element => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
 
-          <Route element={<PrivateRoute />}>
+          <Route element={<PrivateDashboardRoute />}>
             <Route path="/dashboard" element={<Dashboard />} />
           </Route>
+
+          <Route path="/game" element={<Game />}/>
 
         </Routes>
       </AnimatePresence>

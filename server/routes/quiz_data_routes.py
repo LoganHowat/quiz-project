@@ -39,3 +39,8 @@ def add_score(quiz_data_id):
     current_quiz_data.score = current_quiz_data.score+25
     return current_quiz_data.serialized()
 
+
+@quiz_data_bp.route("/quiz_data/quiz_data_id/<id>")
+def getquiz_data(id):
+    quiz_data = QuizData.query.filter_by(id=id).first()
+    return quiz_data.serialized()

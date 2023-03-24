@@ -1,7 +1,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 
-const PrivateRoute = () => {
+const PrivateDashboardRoute = () => {
 
   let user = sessionStorage.getItem("user_id")
   let allow;
@@ -16,4 +16,4 @@ const PrivateRoute = () => {
   )
 }
 
-export default PrivateRoute
+export default PrivateDashboardRoute

@@ -36,7 +36,7 @@ def make_quiz():
             quiz = Quiz(categories=json_data["categories"], difficulty=json_data["difficulty"], limit=json_data["limit"], questions=questions)
             db.session.add(quiz)
             db.session.commit()
-            return json.loads(res.text)
+            return quiz.serialized()
         else:
             return{
                 "Message":"Please enter all fields"
@@ -60,3 +60,8 @@ def get_categories():
         return{
             "Message":str(e)
         },500
+        
+@quiz_bp.route("/quiz/<id>")
+def get_quiz(id):
+    quiz = Quiz.query.filter_by(id=id).first()
+    return quiz.serialized()
