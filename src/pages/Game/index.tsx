@@ -14,28 +14,9 @@ const Game = () => {
 
     //Now we need to retrieve the questions from the quiz object
     const quiz_response = await fetch(`/quiz/${got_quiz_id}`)
-    const quiz = await quiz_response.json()
-    const questions = quiz.questions
-    const newString = questions.substring(1, questions.length - 1);
-    const value = newString.replace(/[']+/g,'"')
-    const array = value.split("},")
-    console.log(array)
-    let newArr = []
-
-    // Running onto problems when trying to convert questions array into objects, specifically errors in the JSON.parse 
-    for(let i = 0; i < array.length; i++) {
-        const jsonString = array[i];
-        if (jsonString.slice(-1) !== '}'){
-            let formattedValue = array[i].concat("}")
-            let lowercase = formattedValue.replace(/[False]+/g,'"false"')
-            console.log(lowercase)
-            let valid = JSON.parse(lowercase)
-            newArr.push(valid)
-        }
-        newArr.push(JSON.parse(array[i]))
-    }
-    console.log(newArr)
-    return(newArr)
+    const questions = await quiz_response.json()
+    console.log(questions.questions)
+    return(questions)
    } 
 
    getQuestions()

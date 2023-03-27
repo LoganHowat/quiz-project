@@ -64,4 +64,4 @@ def get_categories():
 @quiz_bp.route("/quiz/<id>")
 def get_quiz(id):
     quiz = Quiz.query.filter_by(id=id).first()
-    return quiz.serialized()
+    return quiz.returnQuestions()
