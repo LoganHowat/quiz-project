@@ -2,12 +2,15 @@ import React, {useState} from 'react'
 import TopicDropdown from '../TopicDropdown'
 import QuestionDropdown from '../QuestionDropdown'
 import DifficultyDropdown from '../DifficultyDropdown'
+import { useNavigate } from 'react-router-dom'
 
 const CreateModal = () => {
 
   const [topicSelect, setTopicSelect] = useState("Arts & Literature")
   const [difficultySelect, setDifficultySelect] = useState("easy")
   const [questionSelect, setQuestionSelect] = useState(1)
+
+  const navigate = useNavigate()
   
   console.log(topicSelect)
   console.log(difficultySelect)
@@ -51,13 +54,19 @@ const CreateModal = () => {
       const quiz_data = await quiz_data_response.json()
       sessionStorage.setItem('game_id', quiz_data.id)
 
+      const gotten = sessionStorage.getItem("game_id")
+
+      if (gotten && gotten !== "undefined") {
+        navigate("/game")
+      }
+
     } catch (error) {
       console.error(error)
     }
   }
 
   return (
-    <>
+    <div>
     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
     <div className="modal">
       <div className="modal-box relative">
@@ -94,7 +103,7 @@ const CreateModal = () => {
       </div>
       </div>
     </div>
-  </>
+  </div>
   )
 }
 

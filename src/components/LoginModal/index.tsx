@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const LoginModal = () => {
 
@@ -7,6 +8,8 @@ const LoginModal = () => {
   const [LoggedIn, setLoggedIn] = useState(false)
   const [userError, setUserError] = useState(false)
   const [serverError, setServerError] = useState(false)
+
+  const navigate = useNavigate()
 
 
   const handleSubmit = async(e: React.FormEvent) => {
@@ -41,6 +44,7 @@ const LoginModal = () => {
       }, 10000)
     } else {
       setLoggedIn(true)
+      navigate('/dashboard')
       setTimeout(() => {
         setLoggedIn(false)
       }, 3000)

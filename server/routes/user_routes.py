@@ -62,3 +62,8 @@ def login_user():
                 "Message":"Login was successful",
                 "user":user.serialized()
             },200
+            
+@user_bp.route("/user/<id>")
+def get_user(id):
+    user = User.query.filter_by(id=id).first()
+    return user.serialized()

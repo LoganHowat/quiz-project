@@ -18,3 +18,16 @@ class Quiz(db.Model):
             "difficulty":self.difficulty,
             "questions": self.questions
         }
+    
+    def returnQuestions(self):
+        questions = self.questions
+        questions = questions[1:]
+        questions = questions[:-1]
+        questions = questions.split('},')
+        newarr=[]
+        for question in questions:
+            if question[-1] != '}':
+                newarr.append(eval(question + '}'))
+            else:
+                newarr.append(eval(question))
+        return {'questions':newarr}

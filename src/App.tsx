@@ -1,4 +1,4 @@
-import { Home, Dashboard, Game } from "./pages"
+import { Home, Dashboard, Game, Results } from "./pages"
 import { Routes, Route, useLocation } from 'react-router-dom'
 import PrivateDashboardRoute from "./utils/PrivateDashboardRoute"
 import { AnimatePresence } from "framer-motion"
@@ -21,6 +21,7 @@ const App = (): JSX.Element => {
           </Route>
 
           <Route path="/game" element={<Game />}/>
+          <Route path="/results" element={<Results />}/>
 
         </Routes>
       </AnimatePresence>
