@@ -105,10 +105,10 @@ const Game = () => {
                       }
                     }}
           >
-              <div className="card-body items-center text-center">
+              <div className="card-body lg:text-2xl items-center text-center">
                   <p>Score: {score}</p><br></br>
-                  <h2 className="card-title">Question:</h2>
-                  <p id="question-bubble">{questions[questionCount].question}</p>
+                  <h2 className="card-title lg:text-2xl">Question:</h2>
+                  <p id="question-bubble text-xl">{questions[questionCount].question}</p>
                   <div className="card-actions justify-end">
                   </div>
               </div>

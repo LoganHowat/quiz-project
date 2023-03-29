@@ -29,7 +29,24 @@ const username = sessionStorage.getItem("username")
     {createModal && <CreateModal />}
     {highscoreModal && <HighscoreModal />}
 
-    <h1 className='dashboard-title'>WELCOME <br></br>{username}</h1>
+    <motion.h1 className='dashboard-title'
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{
+            default: {
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+            },
+            scale: {
+              type: "spring",
+              damping: 10,
+              stiffness: 400,
+              restDelta: 0.001
+            }
+          }}
+    >WELCOME <br></br>{username}</motion.h1>
 
     <main className='cards-container'>
         <motion.div className="card w-96 bg-base-100 shadow-xl"
