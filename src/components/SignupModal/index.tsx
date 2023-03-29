@@ -45,6 +45,7 @@ const SignupModal = () => {
       }, 10000)
     } else {
       setLoggedIn(true)
+      navigate('/dashboard')
       setTimeout(() => {
         setLoggedIn(false)
       }, 3000)

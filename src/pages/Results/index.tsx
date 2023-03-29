@@ -58,8 +58,26 @@ const Results = () => {
 
   return (
     <>
+    <motion.h1 className='text-center results-title'
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{
+            default: {
+              duration: 0.3,
+              ease: [0, 0.71, 0.2, 1.01],
+            },
+            scale: {
+              type: "spring",
+              damping: 10,
+              stiffness: 400,
+              restDelta: 0.001
+            }
+          }}
+    >WELL DONE!</motion.h1><br></br>
       <div className="leaderboard-container">
-        <motion.div className="card bg-neutral text-neutral-content justify-content: center align-items: center"
+        <motion.div className="card bg-neutral mt-8 text-neutral-content justify-content: center align-items: center"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
