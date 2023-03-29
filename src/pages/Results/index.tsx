@@ -95,8 +95,8 @@ const Results = () => {
             }
           }}
         >
+          <h2 className="card-title results-text text-center m-auto">LEADERBOARD</h2>
           <div className="results-card-body text-center">
-            <h2 className="card-title text-center m-auto">LEADERBOARD</h2>
             <div className='leaderboard-grid'>
                             <span className='position'>Position:</span>
                             <span className='username'>Username:</span>
@@ -113,8 +113,8 @@ const Results = () => {
                         </>
                         )
                     })}
-            <br></br><button onClick={goBack}>Go Back</button>
           </div>
+          <br></br><button className='results-text' onClick={goBack}>Go Back</button>
         </motion.div>
       </div>
     </>
