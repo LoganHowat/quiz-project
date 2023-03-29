@@ -48,12 +48,18 @@ const Game = () => {
     const checkAnswer = async(e: AnswerClick) => {
       const game_id = sessionStorage.getItem('game_id')
       let choice =  e.target.innerText || e.target.children[0].innerHTML
-      console.log(choice)
       if (choice == questions[questionCount].correctAnswer) {
-        console.log("Correct")
         setScore(score + 25)
+        const response = await fetch(`/quiz_data/${game_id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            score: score
+          })
+        });
         if (questionCount + 1 === numberOfQuestions) {
-          console.log("Questions Finished")
           navigate('/results')
         }else{
           setQuestionCount(questionCount + 1)
@@ -61,7 +67,6 @@ const Game = () => {
 
       } else {
         if (questionCount + 1 === numberOfQuestions) {
-          console.log("Questions Finished")
           const response = await fetch(`/quiz_data/${game_id}`, {
             method: 'PUT',
             headers: {
