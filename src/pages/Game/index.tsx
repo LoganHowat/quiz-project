@@ -105,10 +105,10 @@ const Game = () => {
                       }
                     }}
           >
-              <div className="card-body lg:text-2xl items-center text-center">
+              <div className="card-body items-center text-center">
                   <p>Score: {score}</p><br></br>
-                  <h2 className="card-title lg:text-2xl">Question:</h2>
-                  <p id="question-bubble text-xl">{questions[questionCount].question}</p>
+                  <h2 className="card-title">Question:</h2>
+                  <p id="question-bubble">{questions[questionCount].question}</p>
                   <div className="card-actions justify-end">
                   </div>
               </div>
@@ -117,7 +117,7 @@ const Game = () => {
 
     <div className="page-grid">
 
-          <motion.div className="answer1 hover:bg-base-300 card h-24 w-72 md:w-96  bg-neutral text-neutral-content justify-content: center align-items: center"
+          <motion.div className="answer hover:bg-base-300 card md:w-96  bg-neutral text-neutral-content justify-content: center align-items: center"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{opacity: 0, scale: 0.5}}
@@ -144,7 +144,7 @@ const Game = () => {
               </div>
           </motion.div>
 
-          <motion.div className="answer2 hover:bg-base-300 card h-24 w-72 md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
+          <motion.div className="answer hover:bg-base-300 card md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{opacity: 0, scale: 0.5}}
@@ -171,7 +171,7 @@ const Game = () => {
               </div>
           </motion.div>
 
-          <motion.div className="answer3 hover:bg-base-300 card h-24 w-72 md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
+          <motion.div className="answer hover:bg-base-300 card md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{opacity: 0, scale: 0.5}}
@@ -198,7 +198,7 @@ const Game = () => {
               </div>
           </motion.div>
 
-          <motion.div className="answer4 hover:bg-base-300 card h-24 w-72 md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
+          <motion.div className="answer hover:bg-base-300 card md:w-96 bg-neutral text-neutral-content justify-content: center align-items: center"
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{opacity: 0, scale: 0.5}}

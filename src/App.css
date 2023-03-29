@@ -165,7 +165,7 @@
 
   .cards-container {
     display: grid;
-    height: 80vh;
+    height: 100%;
     gap: 1rem;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
@@ -175,7 +175,7 @@
   }
 
   .question-container {
-    height: 50vh;
+    height: 40vh;
     display: flex;
     align-items: center;
   }
@@ -190,6 +190,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     margin-inline: 6rem;
+    height: 100%;
   }
 
   .center {
@@ -290,16 +291,7 @@
     -webkit-backdrop-filter: none;
   }
 
-  .answer1:hover {
-    cursor: pointer;
-  }
-  .answer2:hover {
-    cursor: pointer;
-  }
-  .answer3:hover {
-    cursor: pointer;
-  }
-  .answer4:hover {
+  .answer:hover {
     cursor: pointer;
   }
 
