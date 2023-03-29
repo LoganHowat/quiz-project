@@ -36,6 +36,20 @@
     -ms-user-select: none;
     user-select: none;
 }
+.dashboard-title {
+    font-family: 'GT Walsheim Pro';
+    color: white;
+    font-size: calc(2vw + 2vh + 2vmin);
+    text-align: center;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
 .title:hover {
     cursor: pointer;
@@ -328,7 +342,7 @@
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr 1fr;
       padding-block: 15rem;
-      padding-top: 6rem;
+      padding-top: 2rem;
     }
   }
   

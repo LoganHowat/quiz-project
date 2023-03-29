@@ -34,6 +34,7 @@ const SignupModal = () => {
     const data = await response.json()
     console.log(data)
     sessionStorage.setItem("user_id", data.id)
+    sessionStorage.setItem("username", data.name)
 
     // If credentials are successfully stored in database, login user.
     const gotten = sessionStorage.getItem("user_id")

@@ -31,8 +31,9 @@ const LoginModal = () => {
       )
     });
     const data = await response.json()
-    console.log(data.user.id)
+    console.log(data)
     sessionStorage.setItem("user_id", data.user.id)
+    sessionStorage.setItem("username", data.user.name)
 
     // If credentials are successfully stored in database, login user.
     const gotten = sessionStorage.getItem("user_id")

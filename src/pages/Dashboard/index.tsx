@@ -23,9 +23,13 @@ const logout = () => {
     navigate("/")
 }
 
+const username = sessionStorage.getItem("username")
+
   return ( <>
     {createModal && <CreateModal />}
     {highscoreModal && <HighscoreModal />}
+
+    <h1 className='dashboard-title'>WELCOME <br></br>{username}</h1>
 
     <main className='cards-container'>
         <motion.div className="card w-96 bg-base-100 shadow-xl"
