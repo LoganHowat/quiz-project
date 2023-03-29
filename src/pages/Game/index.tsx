@@ -10,7 +10,6 @@ const Game = () => {
     const [numberOfQuestions, setNumberOfQuestions] = useState(0)
     const [answerList, setAnswerList] = useState([])
     const [score, setScore] = useState(0)
-    console.log(answerList)
 
     const navigate = useNavigate()
 
@@ -34,7 +33,6 @@ const Game = () => {
 
     useEffect(() => {
 
-      console.log(questions)
       let newArr = questions[questionCount].incorrectAnswers
       newArr.push(questions[questionCount].correctAnswer)
       const shuffledArr = newArr.sort((a: string, b: string) => 0.5 - Math.random());
@@ -48,7 +46,7 @@ const Game = () => {
       }
 
     const checkAnswer = async(e: AnswerClick) => {
-      console.log(e)
+      const game_id = sessionStorage.getItem('game_id')
       let choice =  e.target.innerText || e.target.children[0].innerHTML
       console.log(choice)
       if (choice == questions[questionCount].correctAnswer) {
@@ -64,7 +62,6 @@ const Game = () => {
       } else {
         if (questionCount + 1 === numberOfQuestions) {
           console.log("Questions Finished")
-          const game_id = sessionStorage.getItem('game_id')
           const response = await fetch(`/quiz_data/${game_id}`, {
             method: 'PUT',
             headers: {
