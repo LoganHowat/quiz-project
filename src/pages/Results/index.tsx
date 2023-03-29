@@ -95,7 +95,7 @@ const Results = () => {
             }
           }}
         >
-          <div className="card-body text-center">
+          <div className="results-card-body text-center">
             <h2 className="card-title text-center m-auto">LEADERBOARD</h2>
             <div className='leaderboard-grid'>
                             <span className='position'>Position:</span>
