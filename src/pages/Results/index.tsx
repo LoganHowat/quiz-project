@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import ReactCanvasConfetti from "react-canvas-confetti";
+//import ReactCanvasConfetti from "react-canvas-confetti";
 import { useNavigate } from 'react-router-dom';
 
 const Results = () => {

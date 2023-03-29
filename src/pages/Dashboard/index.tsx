@@ -67,9 +67,6 @@ const username = sessionStorage.getItem("username")
             }
           }}
         >
-            <figure className="px-10 pt-10">
-                <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="create" className="rounded-xl" />
-            </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">Create Game</h2>
                 <p>Create a brand-new quiz!</p>
@@ -97,9 +94,6 @@ const username = sessionStorage.getItem("username")
             }
           }}        
         >
-            <figure className="px-10 pt-10">
-                <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="highscores" className="rounded-xl" />
-            </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">Highscores</h2>
                 <p>See the community scores on our leaderboard!</p>
@@ -127,9 +121,6 @@ const username = sessionStorage.getItem("username")
             }
           }}        
         >
-            <figure className="px-10 pt-10">
-                <img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" className="rounded-xl" />
-            </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">Logout</h2>
                 <p>Go back to the welcome page</p>
