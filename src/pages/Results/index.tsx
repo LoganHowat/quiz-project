@@ -58,8 +58,8 @@ const Results = () => {
 
   return (
     <>
-      <div className="question-container">
-        <motion.div className="card w-1/3 bg-neutral text-neutral-content justify-content: center align-items: center"
+      <div className="leaderboard-container">
+        <motion.div className="card bg-neutral text-neutral-content justify-content: center align-items: center"
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.5 }}
@@ -77,20 +77,37 @@ const Results = () => {
             }
           }}
         >
-          <div className="card-body items-center text-center">
-            <h2 className="card-title">LEADERBOARD</h2>
-            {users.map((user: User) => {
-              return (
-                <p style={{background: user.game_id == gameId ? "purple" : ""}} key={user.id}>
-                {user.user}: {user.score}</p>
-              )
-            })}
-            <button onClick={goBack}>Go Back</button>
+          <div className="card-body text-center">
+            <h2 className="card-title text-center m-auto">LEADERBOARD</h2>
+            <div className='leaderboard-grid'>
+                            <span className='position'>Position:</span>
+                            <span className='username'>Username:</span>
+                            <span className='score'>Score:</span>
+                </div>
+
+                    {users.map((user: User, index) => {
+                        return (<>
+                            <div className='leaderboard-grid' key={user.id}>
+                                    <span style={{background: user.game_id == gameId ? "purple" : ""}} key={user.id} className='position'>{index + 1}</span>
+                                    <span style={{background: user.game_id == gameId ? "purple" : ""}} key={user.id} className='username'>{user.user}</span>
+                                    <span style={{background: user.game_id == gameId ? "purple" : ""}} key={user.id} className='score'>{user.score}</span>
+                            </div>
+                        </>
+                        )
+                    })}
+            <br></br><button onClick={goBack}>Go Back</button>
           </div>
         </motion.div>
       </div>
     </>
   )
 }
+
+// {users.map((user: User) => {
+//   return (
+//     <p style={{background: user.game_id == gameId ? "purple" : ""}} key={user.id}>
+//     {user.user}: {user.score}</p>
+//   )
+// })}
 
 export default Results

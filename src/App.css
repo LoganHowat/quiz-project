@@ -151,6 +151,11 @@
     display: flex;
     align-items: center;
   }
+  .leaderboard-container {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+  }
 
   .page-grid {
     display: grid;
@@ -268,6 +273,10 @@
   }
   .answer4:hover {
     cursor: pointer;
+  }
+
+  .results-height {
+    height: 50%;
   }
 
 @keyframes gradient {
