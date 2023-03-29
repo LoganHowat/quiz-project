@@ -20,6 +20,7 @@ const handleHighscoreModal = () => {
   }
 const logout = () => {
     sessionStorage.removeItem("user_id")
+    sessionStorage.removeItem("username")
     navigate("/")
 }
 

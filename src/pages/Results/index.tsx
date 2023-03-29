@@ -114,7 +114,24 @@ const Results = () => {
                         )
                     })}
           </div>
-          <br></br><button className='results-text' onClick={goBack}>Go Back</button>
+          <br></br><motion.button className='results-text' onClick={goBack}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.5 }}
+                    whileHover={{ scale: 1.05 }}
+                    transition={{
+                      default: {
+                        duration: 0.3,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      },
+                      scale: {
+                        type: "spring",
+                        damping: 10,
+                        stiffness: 400,
+                        restDelta: 0.001
+                      }
+                    }}    
+          >Go Back</motion.button>
         </motion.div>
       </div>
     </>
