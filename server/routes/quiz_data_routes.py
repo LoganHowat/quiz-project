@@ -49,7 +49,7 @@ def add_score(quiz_data_id):
     data = request.data
     json_data = json.loads(data)
     current_quiz_data = QuizData.query.get_or_404(quiz_data_id)
-    current_quiz_data.score = current_quiz_data.score+ int(json_data["score"])
+    current_quiz_data.score = int(json_data["score"])
     db.session.commit()
     return current_quiz_data.serialized()
 
